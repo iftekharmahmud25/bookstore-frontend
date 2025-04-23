@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login</title>
+    <title>Login</title>
     <link rel="stylesheet" href="login.css">
 </head>
 <body>
@@ -18,24 +18,58 @@
         </div>
     </nav>
 
-         <!-- Hero Section -->
-<section class="hero">
-    <div class="hero-content">
-        <h1>Welcome to our online bookstore</h1>
-        <h3>Explore and purchase your favourite books with ease</h3>
-        <a href="book.html" class="hero-button">Browse Books</a>
-    </div>
-</section>
-<!-- Login Form Section -->
-<section class="login-form-section">
-    <h2>Login</h2>
-    <form class="login-form">
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Email Address" required>
-        <input type="password" placeholder="Password" required>
-        <button type="submit">Login</button>
-    </form>
-</section>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to our online bookstore</h1>
+            <h3>Explore and purchase your favourite books with ease</h3>
+            <a href="book.html" class="hero-button">Browse Books</a>
+        </div>
+    </section>
 
+    <!-- Login Form Section -->
+    <section class="login-form-section">
+        <h2>Login</h2>
+        <form class="login-form" id="loginForm">
+            <input type="text" name="username" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Email Address" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+    </section>
+
+    <!-- JavaScript to handle login -->
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const formData = {
+                username: this.username.value,
+                email: this.email.value,
+                password: this.password.value
+            };
+
+            try {
+                const response = await fetch('http://localhost:3000/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const result = await response.json();
+                if (response.ok) {
+                    alert('Login successful!');
+                    // window.location.href = "dashboard.html"; // Optional redirect
+                } else {
+                    alert('Login failed: ' + result.message);
+                }
+            } catch (error) {
+                alert('Could not connect to server.');
+                console.error(error);
+            }
+        });
+    </script>
 </body>
 </html>
