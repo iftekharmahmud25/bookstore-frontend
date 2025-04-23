@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cart</title>
+    <link rel="stylesheet" href="cart.css">
+
+</head>
+<body>
+    <nav>
+        <div class="logo">BookStore</div>
+        <div class="nav-links">
+            <a href="">Home</a>
+            <a href="book.html">Books</a>
+            <a href="cart.html">Cart</a>
+            <a href="admin.html">Admin</a>
+            <a href="login.html">Login</a>
+        </div>
+    </nav>
+         <!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Welcome to our online bookstore</h1>
+        <h3>Explore and purchase your favourite books with ease</h3>
+        <a href="book.html" class="hero-button">Browse Books</a>
+    </div>
+</section>
+
+<!-- Purchase Book Section -->
+<section class="purchase-book">
+    <div class="purchase-container">
+        <!-- Book Info -->
+        <div class="book-info">
+            <img src="./images/book1.jpg" alt="Book Image">
+            <h3>The Great Adventure</h3>
+            <p>Author: Jane Doe</p>
+            <p>Price: $19.99</p>
+        </div>
+
+        <!-- Purchase Form -->
+        <form class="purchase-form">
+            <h4>Purchase This Book</h4>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Shipping Address" rows="3" required></textarea>
+            <input type="number" placeholder="Quantity" min="1" value="1" required>
+            <button type="submit">Place Order</button>
+        </form>
+    </div>
+</section>
+
+</body>
+</html>
